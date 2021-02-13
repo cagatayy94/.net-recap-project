@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using DataAccess.Abstract;
 using Entities.Concrate;
+using Entities.DTOs;
 
 namespace DataAccess.Concrate.InMemory
 {
@@ -43,6 +44,11 @@ namespace DataAccess.Concrate.InMemory
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             return _cars;
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)

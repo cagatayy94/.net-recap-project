@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrate;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -47,6 +48,11 @@ namespace Business.Concrete
             }
 
             _carDal.Add(car);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
     }
 }
