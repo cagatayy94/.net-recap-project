@@ -9,6 +9,6 @@ namespace Business.Abstract
     {
         IResult Add(User user);
         IDataResult<List<User>> GetAll();
-        IDataResult<User> GetById(int rentalId);
+        IDataResult<User> GetById(int userId);
     }
 }
