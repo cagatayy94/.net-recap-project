@@ -51,7 +51,7 @@ namespace Business.Concrete
 
             _carDal.Add(car);
 
-            return new SuccessResult(Messages.CarsListed);
+            return new SuccessResult(Messages.CarAddedSuccessfully);
 
         }
 
