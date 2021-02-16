@@ -18,7 +18,7 @@ namespace Business.Concrete
 
         public IResult Add(User user)
         {
-            if (user.UserId < 1)
+            if (user.Password.Length < 3)
             {
                 return new ErrorResult(Messages.UserInvalid);
             }
