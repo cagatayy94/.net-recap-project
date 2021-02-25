@@ -26,6 +26,5 @@ namespace Business.ValidationRules.FluentValidation
         {
             return arg.StartsWith("A");
         }
-
     }
 }
