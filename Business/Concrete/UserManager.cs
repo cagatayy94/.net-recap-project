@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using FluentValidation;
 
 namespace Business.Concrete
 {
@@ -18,9 +20,15 @@ namespace Business.Concrete
 
         public IResult Add(User user)
         {
-            if (user.Password.Length < 3)
+            var context = new ValidationContext<User>(user);
+
+            IValidator validator = new UserValidator();
+
+            var result = validator.Validate(context);
+
+            if (!result.IsValid)
             {
-                return new ErrorResult(Messages.UserInvalid);
+                throw new ValidationException(result.Errors);
             }
 
             _userDal.Add(user);
