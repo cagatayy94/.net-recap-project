@@ -11,8 +11,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Concrete\" />
-    <Folder Include="DepencencyResolvers\" />
-    <Folder Include="DepencencyResolvers\Autofac\" />
+    <Folder Include="DependencyResolvers\" />
+    <Folder Include="DependencyResolvers\Autofac\" />
     <Folder Include="ValidationRules\" />
     <Folder Include="ValidationRules\FluentValidation\" />
   </ItemGroup>
