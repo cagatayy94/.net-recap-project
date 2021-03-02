@@ -23,6 +23,15 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IResult Delete(int carImageId)
+        {
+            var carImageToDelete = _carImageDal.Get(c => c.CarImageId == carImageId);
+
+            _carImageDal.Delete(carImageToDelete);
+
+            return new SuccessResult();
+        }
+
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
