@@ -93,5 +93,25 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getimagesbycarid")]
+        public IActionResult GetCarImagesByCarId(int carId)
+        {
+            var result = _carImageService.GetCarImagesByCarId(carId);
+            if (result.Success)
+            {
+                if (result.Data.Count == 0)
+                {
+                    CarImage carImage = new CarImage();
+                    carImage.ImagePath = "default.png";
+                    carImage.CarId = carId;
+                    result.Data.Add(carImage);
+
+                }
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
     }
 }
