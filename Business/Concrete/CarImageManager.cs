@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,9 +19,16 @@ namespace Business.Concrete
 
         public IResult Add(CarImage carImage)
         {
-            _carImageDal.Add(carImage);
+            IResult isValid = CheckCarImageLimitSuitable(carImage.CarId);
 
-            return new SuccessResult();
+            if (isValid.Success)
+            {
+                _carImageDal.Add(carImage);
+
+                return new SuccessResult();
+            }
+
+            return new ErrorResult(isValid.Message);
         }
 
         public IResult Delete(int carImageId)
@@ -42,6 +50,17 @@ namespace Business.Concrete
             var result = _carImageDal.Get(c => c.CarImageId == carImage.CarImageId);
 
             _carImageDal.Update(carImage);
+
+            return new SuccessResult();
+        }
+
+        private IResult CheckCarImageLimitSuitable(int carId)
+        {
+            var result = _carImageDal.GetAll(c => c.CarId == carId).Count;
+            if (result >= 5)
+            {
+                return new ErrorResult(Messages.CarImageLimitExceded);
+            }
 
             return new SuccessResult();
         }
