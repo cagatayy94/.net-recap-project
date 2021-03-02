@@ -17,12 +17,14 @@ namespace Business.Concrete
         }
         public IResult Add(CarImage carImage)
         {
-            throw new NotImplementedException();
+            _carImageDal.Add(carImage);
+
+            return new SuccessResult();
         }
 
         public IDataResult<List<CarImage>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
     }
 }
