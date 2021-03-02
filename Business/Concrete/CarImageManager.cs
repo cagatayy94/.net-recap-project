@@ -15,6 +15,7 @@ namespace Business.Concrete
         {
             _carImageDal = carImageDal;
         }
+
         public IResult Add(CarImage carImage)
         {
             _carImageDal.Add(carImage);
@@ -25,6 +26,15 @@ namespace Business.Concrete
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
+        }
+
+        public IResult Update(CarImage carImage)
+        {
+            var result = _carImageDal.Get(c => c.CarImageId == carImage.CarImageId);
+
+            _carImageDal.Update(carImage);
+
+            return new SuccessResult();
         }
     }
 }

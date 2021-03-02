@@ -44,6 +44,8 @@ namespace WebAPI.Controllers
 
             carImage.ImagePath = imageName + ".png";
 
+            carImage.Date = DateTime.Now;
+
             var result = _carImageService.Add(carImage);
             if (result.Success)
             {
@@ -52,5 +54,32 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpPut("update")]
+        public IActionResult Update([FromForm] CarImage carImage)
+        {
+            var imageName = Guid.NewGuid();
+            var image = carImage.Image;
+            if (image.Length > 0)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/images", imageName + ".png");
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    image.CopyTo(fileStream);
+                }
+            };
+
+            carImage.ImagePath = imageName + ".png";
+            carImage.Date = DateTime.Now;
+
+            var result = _carImageService.Update(carImage);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
     }
 }

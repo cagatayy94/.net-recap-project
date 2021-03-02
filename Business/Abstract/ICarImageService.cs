@@ -9,5 +9,6 @@ namespace Business.Abstract
     {
         IResult Add(CarImage carImage);
         IDataResult<List<CarImage>> GetAll();
+        IResult Update(CarImage carImage);
     }
 }
