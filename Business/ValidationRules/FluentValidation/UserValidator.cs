@@ -17,9 +17,6 @@ namespace Business.ValidationRules.FluentValidation
 
             RuleFor(u => u.LastName).NotEmpty();
             RuleFor(u => u.LastName).MinimumLength(3);
-
-            RuleFor(u => u.Password).NotEmpty();
-            RuleFor(u => u.Password).MinimumLength(8);
         }
 
         private bool StartWithA(string arg)
