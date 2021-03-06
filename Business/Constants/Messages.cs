@@ -1,4 +1,6 @@
 ﻿using System;
+using Core.Entities.Concrete;
+
 namespace Business.Constants
 {
     public class Messages
@@ -11,5 +13,11 @@ namespace Business.Constants
         public static string UserInvalid = "Kullanıcı geçersiz";
         public static string UserAddedSuccessfully = "Kullanıcı başarıyla eklendi";
         public static string CarImageLimitExceded = "Bu araca daha fazla fotoğraf ekleyemezsiniz";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Parola Hatalı";
+        public static string LoginSuccess = "Giriş Başarılı";
+        public static string UserAlreadyExist = "Kullanıcı zaten var";
+        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
+        public static string AccessTokenGenerated = "Access token oluşturuldu";
     }
 }
