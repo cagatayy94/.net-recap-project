@@ -1,7 +1,4 @@
-﻿using System;
-using Core.Entities;
-
-namespace Entities.Concrete
+﻿namespace Core.Entities.Concrete
 {
     public class User:IEntity
     {
