@@ -1,4 +1,6 @@
-﻿namespace Core.Entities.Concrete
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Core.Entities.Concrete
 {
     public class OperationClaim : IEntity
     {

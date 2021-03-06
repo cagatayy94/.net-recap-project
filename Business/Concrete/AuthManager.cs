@@ -41,18 +41,18 @@ namespace Business.Concrete
         {
             var userExist = _userService.GetByEmail(email);
 
-            if (userExist != null)
+            if (userExist == null)
             {
                 return new ErrorResult(Messages.UserAlreadyExist);
             }
             return new SuccessResult();
         }
 
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
+        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
 
-            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+            HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
 
             User user = new User();
 
