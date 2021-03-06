@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Linq;
 using Core.Utilities.Results;
+using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Utilities.Results;
-using Entities.Concrate;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrate;
+using Entities.Concrete;
 
 namespace Business.Concrete
 {

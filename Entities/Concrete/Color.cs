@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.Entities;
 
-namespace Entities.Concrate
+namespace Entities.Concrete
 {
     public class Color:IEntity
     {

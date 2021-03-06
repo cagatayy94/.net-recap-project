@@ -1,6 +1,6 @@
 ﻿using System;
 using Business.Abstract;
-using Entities.Concrate;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

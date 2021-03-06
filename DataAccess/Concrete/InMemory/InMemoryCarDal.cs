@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using DataAccess.Abstract;
-using Entities.Concrate;
+using Entities.Concrete;
 using Entities.DTOs;
 
 namespace DataAccess.Concrate.InMemory

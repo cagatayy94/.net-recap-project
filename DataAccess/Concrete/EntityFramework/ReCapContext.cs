@@ -1,5 +1,5 @@
 ﻿using System;
-using Entities.Concrate;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
