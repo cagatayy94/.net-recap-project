@@ -44,6 +44,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(CarValidator))]
         [SecuredOperation("car.add")]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
             if (car.Description.Length <= 1)
