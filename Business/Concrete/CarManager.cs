@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -37,6 +38,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == colorId));
         }
 
+        [SecuredOperation("car.add")]
         public IResult Add(Car car)
         {
             if (car.Description.Length <= 1)

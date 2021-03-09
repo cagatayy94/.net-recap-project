@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using Core.Entities.Concrete;
 
 namespace Business.Constants
@@ -19,5 +20,6 @@ namespace Business.Constants
         public static string UserAlreadyExist = "Kullanıcı zaten var";
         public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
         public static string AccessTokenGenerated = "Access token oluşturuldu";
+        public static string AuthorizationDenied = "Yetkisiz erişim";
     }
 }

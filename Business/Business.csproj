@@ -15,6 +15,8 @@
     <Folder Include="DependencyResolvers\Autofac\" />
     <Folder Include="ValidationRules\" />
     <Folder Include="ValidationRules\FluentValidation\" />
+    <Folder Include="BusinessAspect\" />
+    <Folder Include="BusinessAspect\Autofac\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.1.0" />

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Business.Concrete;
+using Core.DependencyResolvers;
+using Core.Extensions;
+using Core.Utilities.IoC;
 using Core.Utilities.Security.Encription;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
@@ -58,6 +61,11 @@ namespace WebAPI
                     };
                 }
             );
+
+            services.AddDependencyResolvers(new ICoreModule[] {
+                new CoreModule()
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
