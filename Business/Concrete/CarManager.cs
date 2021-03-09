@@ -5,6 +5,7 @@ using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -61,6 +62,27 @@ namespace Business.Concrete
 
             return new SuccessResult(Messages.CarAddedSuccessfully);
 
+        }
+
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            _carDal.Add(car);
+
+            System.Threading.Thread.Sleep(5000);
+
+
+            if (car.DailyPrice < 10)
+            {
+                throw new Exception("asd");
+            }
+
+
+            car.CarId = 0;
+
+            _carDal.Add(car);
+
+            return new SuccessResult();
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
