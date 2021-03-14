@@ -41,7 +41,7 @@ namespace WebAPI
             services.AddControllers();
             services.AddCors(options =>
                 options.AddPolicy("AllowOrigin",
-                    builder=>builder.WithOrigins("https://dotnetcore-recap.tk")
+                    builder=>builder.WithOrigins("https://localhost")
                 )
             );
 
@@ -82,7 +82,7 @@ namespace WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
-            app.UseCors(builder => builder.WithOrigins("https://dotnetcore-recap.tk").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("https://localhost").AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
