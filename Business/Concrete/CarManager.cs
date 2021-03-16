@@ -70,9 +70,6 @@ namespace Business.Concrete
         {
             _carDal.Add(car);
 
-            System.Threading.Thread.Sleep(5000);
-
-
             if (car.DailyPrice < 10)
             {
                 throw new Exception("asd");
@@ -89,8 +86,6 @@ namespace Business.Concrete
         [PerformanceAspect(3)]
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            System.Threading.Thread.Sleep(5000);
-
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
     }
