@@ -46,6 +46,11 @@ namespace DataAccess.Concrate.InMemory
             return _cars;
         }
 
+        public List<CarDetailDto> GetCarDetail(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CarDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();
