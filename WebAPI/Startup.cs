@@ -45,13 +45,7 @@ namespace WebAPI
                 )
             );
 
-            //var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-
-
-            var applicationSettings = Configuration.GetSection("TokenOptions");
-            services.Configure<TokenOptions>(applicationSettings);
-
-            var appSettingsSecretKey = applicationSettings.Get<TokenOptions>();
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options =>
@@ -61,10 +55,10 @@ namespace WebAPI
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
-                        ValidIssuer = appSettingsSecretKey.Issuer,
-                        ValidAudience = appSettingsSecretKey.Audience,
+                        ValidIssuer = tokenOptions.Issuer,
+                        ValidAudience = tokenOptions.Audience,
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(appSettingsSecretKey.SecurityKey)
+                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 }
             );
