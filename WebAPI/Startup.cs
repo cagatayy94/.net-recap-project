@@ -47,21 +47,21 @@ namespace WebAPI
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
-                builder =>
-                {
-                    builder.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = tokenOptions.Issuer,
-                        ValidAudience = tokenOptions.Audience,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-                    };
-                }
-            );
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+            //    builder =>
+            //    {
+            //        builder.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuer = true,
+            //            ValidateAudience = true,
+            //            ValidateLifetime = true,
+            //            ValidIssuer = tokenOptions.Issuer,
+            //            ValidAudience = tokenOptions.Audience,
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+            //        };
+            //    }
+            //);
 
             services.AddDependencyResolvers(new ICoreModule[] {
                 new CoreModule()
