@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.;database=ReCap;User ID=sa;Password=reallyStrongPwd123;");
+            optionsBuilder.UseSqlServer("server=localhost;database=ReCap;User ID=sa;Password=reallyStrongPwd123;");
         }
 
         public DbSet<Car> Cars { get; set; }
