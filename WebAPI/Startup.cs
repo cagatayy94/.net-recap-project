@@ -47,21 +47,20 @@ namespace WebAPI
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
-                options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = tokenOptions.Issuer,
-                        ValidAudience = tokenOptions.Audience,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-                    };
-                }
-            );
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+            //    options => {
+            //        options.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuer = true,
+            //            ValidateAudience = true,
+            //            ValidateLifetime = true,
+            //            ValidIssuer = tokenOptions.Issuer,
+            //            ValidAudience = tokenOptions.Audience,
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+            //        };
+            //    }
+            //);
 
             services.AddDependencyResolvers(new ICoreModule[] {
                 new CoreModule()
@@ -84,9 +83,9 @@ namespace WebAPI
             }
 
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-            //app.UseCors(builder => builder.WithOrigins("http://localhost").AllowAnyHeader());
+            //app.UseCors(builder => builder.WithOrigins("https://localhost").AllowAnyHeader());
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
