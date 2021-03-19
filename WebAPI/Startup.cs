@@ -48,9 +48,9 @@ namespace WebAPI
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
-                options =>
+                builder =>
                 {
-                    options.TokenValidationParameters = new TokenValidationParameters
+                    builder.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
