@@ -47,8 +47,6 @@ namespace WebAPI
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-            Console.WriteLine(tokenOptions);
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options =>
                 {
@@ -94,9 +92,8 @@ namespace WebAPI
 
             app.UseStaticFiles();
 
-            app.UseAuthorization();
-
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
